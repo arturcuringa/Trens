@@ -32,16 +32,7 @@ private:
     Trem *trem6;
     Trem *trem7;
 
-    Semaforo *sem1;
-    Semaforo *sem2;
-    Semaforo *sem3;
-    Semaforo *sem4;
-    Semaforo *sem5;
-    Semaforo *sem6;
-    Semaforo *sem7;
-    Semaforo *sem8;
-    Semaforo *sem9;
-    Semaforo *sem10;
+    Semaforo* semaforos[10];
 };
 
 #endif // MAINWINDOW_H

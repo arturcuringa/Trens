@@ -7,48 +7,63 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //Semaforos
+    for(int i=0; i<10; ++i)
+        semaforos[i] = new Semaforo(150+i,1,0);
+
+
     //Verticais
     trem1 = new Trem(1,90,210);
     connect(trem1,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
-    trem1->start();
+    trem1->start(semaforos);
 
     trem4 = new Trem(4,530,210);
     connect(trem4,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
-    trem4->start();
+    trem4->start(semaforos);
 
     //Horizontais cima
     trem2 = new Trem(2,230,120);
     connect(trem2,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
-    trem2->start();
+    trem2->start(semaforos);
 
     trem3 = new Trem(3,390,120);
     connect(trem3,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
-    trem3->start();
+    trem3->start(semaforos);
 
     //Horizontais baixo
     trem5 = new Trem(5,390,300);
     connect(trem5,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
-    trem5->start();
+    trem5->start(semaforos);
 
     trem6 = new Trem(6,230,300);
     connect(trem6,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
-    trem6->start();
+    trem6->start(semaforos);
 
     //Central
     trem7 = new Trem(7,390,210);
     connect(trem7,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
-    trem7->start();
+    trem7->start(semaforos);
 
-    //Semaforos
-
-
-
-
+    /*
+    sem0 = new Semafaro(151,1,0);
+    sem1 = new Semafaro(152,1,0);
+    sem2 = new Semafaro(152,1,0);
+    sem3 = new Semafaro(154,1,0);
+    sem4 = new Semafaro(155,1,0);
+    sem5 = new Semafaro(156,1,0);
+    sem6 = new Semafaro(157,1,0);
+    sem7 = new Semafaro(158,1,0);
+    sem8 = new Semafaro(159,1,0);
+    sem9 = new Semafaro(1510,1,0);
+    */
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    //Necessario?
+    for(int i=0; i<10; ++i)
+        delete semaforos[i];
 }
 
 void MainWindow::updateInterface(int id, int x, int y)

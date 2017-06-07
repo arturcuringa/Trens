@@ -5,6 +5,7 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+#include "semaforo.h"
 using namespace std;
 
 class Trem : public QObject
@@ -13,8 +14,8 @@ class Trem : public QObject
 public:
     Trem(int,int,int);
     ~Trem();
-    void start();
-    void run();
+    void start(Semaforo *semaforo[]);
+    void run(Semaforo *semaforo[]);
     void setVelocidade(int);
     void setEnable(bool);
 

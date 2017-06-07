@@ -72,5 +72,3 @@ int Semaforo::getContador(){
   return semctl(semaforoId,0,GETVAL,arg);
 }
 
-
-

@@ -379,7 +379,7 @@ color: white;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="s2">
+   <widget class="QLabel" name="s8">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -392,13 +392,13 @@ color: white;</string>
      <string notr="true">color: white;</string>
     </property>
     <property name="text">
-     <string>S2</string>
+     <string>S8</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="s3">
+   <widget class="QLabel" name="s4">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -411,13 +411,13 @@ color: white;</string>
      <string notr="true">color: white;</string>
     </property>
     <property name="text">
-     <string>S3</string>
+     <string>S4</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="s4">
+   <widget class="QLabel" name="s2">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -430,7 +430,7 @@ color: white;</string>
      <string notr="true">color: white;</string>
     </property>
     <property name="text">
-     <string>S4</string>
+     <string>S2</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -455,7 +455,7 @@ color: white;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="s6">
+   <widget class="QLabel" name="s3">
     <property name="geometry">
      <rect>
       <x>480</x>
@@ -468,13 +468,13 @@ color: white;</string>
      <string notr="true">color: white;</string>
     </property>
     <property name="text">
-     <string>S6</string>
+     <string>S3</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="s7">
+   <widget class="QLabel" name="s10">
     <property name="geometry">
      <rect>
       <x>480</x>
@@ -487,13 +487,13 @@ color: white;</string>
      <string notr="true">color: white;</string>
     </property>
     <property name="text">
-     <string>S7</string>
+     <string>S10</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="s8">
+   <widget class="QLabel" name="s7">
     <property name="geometry">
      <rect>
       <x>340</x>
@@ -506,7 +506,7 @@ color: white;</string>
      <string notr="true">color: white;</string>
     </property>
     <property name="text">
-     <string>S8</string>
+     <string>S7</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -531,7 +531,7 @@ color: white;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="s10">
+   <widget class="QLabel" name="s6">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -544,7 +544,7 @@ color: white;</string>
      <string notr="true">color: white;</string>
     </property>
     <property name="text">
-     <string>S10</string>
+     <string>S6</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -908,17 +908,16 @@ color: white;</string>
    <zorder>labelTrem06</zorder>
    <zorder>labelTrem07</zorder>
    <zorder>s1</zorder>
-   <zorder>s2</zorder>
-   <zorder>s3</zorder>
-   <zorder>s4</zorder>
-   <zorder>s5</zorder>
-   <zorder>s6</zorder>
-   <zorder>s7</zorder>
    <zorder>s8</zorder>
-   <zorder>s9</zorder>
+   <zorder>s4</zorder>
+   <zorder>s2</zorder>
+   <zorder>s5</zorder>
+   <zorder>s3</zorder>
    <zorder>s10</zorder>
+   <zorder>s7</zorder>
+   <zorder>s9</zorder>
+   <zorder>s6</zorder>
    <zorder>frame_2</zorder>
-   <zorder>label_21</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -926,7 +925,7 @@ color: white;</string>
      <x>0</x>
      <y>0</y>
      <width>836</width>
-     <height>31</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
