@@ -39,6 +39,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(trem7,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     trem7->start();
 
+    //Semaforos
+
+
+
+
 }
 
 MainWindow::~MainWindow()

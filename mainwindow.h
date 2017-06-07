@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "trem.h"
+#include "semaforo.h"
 #include <QMainWindow>
 
 using namespace std;
@@ -30,6 +31,17 @@ private:
     Trem *trem5;
     Trem *trem6;
     Trem *trem7;
+
+    Semaforo *sem1;
+    Semaforo *sem2;
+    Semaforo *sem3;
+    Semaforo *sem4;
+    Semaforo *sem5;
+    Semaforo *sem6;
+    Semaforo *sem7;
+    Semaforo *sem8;
+    Semaforo *sem9;
+    Semaforo *sem10;
 };
 
 #endif // MAINWINDOW_H
