@@ -16,33 +16,40 @@ MainWindow::MainWindow(QWidget *parent) :
     trem1 = new Trem(1,90,210);
     connect(trem1,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     trem1->start(semaforos);
+    trem1->setVelocidade(50);
 
     trem4 = new Trem(4,530,210);
     connect(trem4,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     trem4->start(semaforos);
+    trem4->setVelocidade(10);
 
     //Horizontais cima
     trem2 = new Trem(2,230,120);
     connect(trem2,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     trem2->start(semaforos);
+    trem2->setVelocidade(10);
 
     trem3 = new Trem(3,390,120);
     connect(trem3,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     trem3->start(semaforos);
+    trem3->setVelocidade(10);
 
     //Horizontais baixo
     trem5 = new Trem(5,390,300);
     connect(trem5,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     trem5->start(semaforos);
+    trem5->setVelocidade(10);
 
     trem6 = new Trem(6,230,300);
     connect(trem6,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     trem6->start(semaforos);
+    trem6->setVelocidade(10);
 
     //Central
-    trem7 = new Trem(7,390,210);
+    trem7 = new Trem(7,390,220);
     connect(trem7,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     trem7->start(semaforos);
+    trem7->setVelocidade(100);
 
     /*
     sem0 = new Semafaro(151,1,0);
@@ -76,6 +83,7 @@ void MainWindow::updateInterface(int id, int x, int y)
             ui->labelTrem02->setGeometry(x,y,20,20);
             break;
         case 3:
+            std::cout<<""<<std::endl;
             ui->labelTrem03->setGeometry(x,y,20,20);
             break;
         case 4:

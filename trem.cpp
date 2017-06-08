@@ -31,7 +31,6 @@ void Trem::start(Semaforo* semaforo[])
 
 void Trem::run(Semaforo* semaforo[])
 {
-    //TODO colocar limites nos semáforos e fazer o cálculo de acordo com os limites
     while(true){
         switch(id){
         case 1:
@@ -49,10 +48,10 @@ void Trem::run(Semaforo* semaforo[])
             if(y==300 && x==120){
                 semaforo[7]->V();
             }
-            std::cout<<"Semaforo 1: "<<semaforo[0]->getContador()<<std::endl;
-            std::cout<<"Semaforo 8: "<<semaforo[7]->getContador()<<std::endl;
+            //std::cout<<"Semaforo 1: "<<semaforo[0]->getContador()<<std::endl;
+            //std::cout<<"Semaforo 8: "<<semaforo[7]->getContador()<<std::endl;
 
-            if (enable && velocidade > 0)
+            if (enable)
             {
 
                 emit updateGUI(id,x,y);
@@ -78,15 +77,21 @@ void Trem::run(Semaforo* semaforo[])
             }
             //Direita
             if(y==120 && x==300){
+                semaforo[3]->P();
                 semaforo[1]->P();
             }
             if(y==180 && x==280){
                 semaforo[1]->V();
             }
-            std::cout<<"Semaforo 1: "<<semaforo[0]->getContador()<<std::endl;
-            std::cout<<"Semaforo 2: "<<semaforo[1]->getContador()<<std::endl;
+            if(y== 180 && x==200){
+                semaforo[3]->V();
+            }
 
-            if (enable && velocidade > 0)
+            //std::cout<<"Semaforo 1: "<<semaforo[0]->getContador()<<std::endl;
+            //std::cout<<"Semaforo 2: "<<semaforo[1]->getContador()<<std::endl;
+            //std::cout<<"Semaforo 4: "<<semaforo[3]->getContador()<<std::endl;
+
+            if (enable)
             {
                 emit updateGUI(id,x,y);
                 if (x == 150 && y > 120)
@@ -102,23 +107,30 @@ void Trem::run(Semaforo* semaforo[])
             break;
         case 3:
             //Esquerda
-            if(y==180 && x==330){
-                semaforo[1]->P();
+            if(y==180 && x==410){
+               semaforo[1]->P();
+               semaforo[4]->P();
+
             }
-            if(y==120 && x==330){
-                semaforo[1]->V();
+            if(y==150 && x==310){
+               semaforo[4]->V();
+            }
+            if(y==120 && x==340){
+               semaforo[1]->V();
             }
             //Direita
             if(y==120 && x==460){
                 semaforo[2]->P();
             }
-            if(y==180 && x==460){
+            if(y==180 && x==440){
                 semaforo[2]->V();
             }
-            std::cout<<"Semaforo 2: "<<semaforo[1]->getContador()<<std::endl;
-            std::cout<<"Semaforo 3: "<<semaforo[2]->getContador()<<std::endl;
 
-            if (enable && velocidade > 0)
+            //std::cout<<"Semaforo 5: "<<semaforo[4]->getContador()<<std::endl;
+            //std::cout<<"Semaforo 2: "<<semaforo[1]->getContador()<<std::endl;
+            //std::cout<<"Semaforo 3: "<<semaforo[2]->getContador()<<std::endl;
+
+            if (enable)
             {
                 emit updateGUI(id,x,y);
                 if (x == 310 && y > 120)
@@ -134,23 +146,23 @@ void Trem::run(Semaforo* semaforo[])
             break;
         case 4:
             //Cima
-            if(x==470 && y==200){
+            if(x==470 && y==190){
                 semaforo[2]->P();
             }
             if(x==490 && y==120){
                 semaforo[2]->V();
             }
             //Baixo
-            if(x==490 && y==300){
+            if(x==500 && y==300){
                 semaforo[9]->P();
             }
             if(x==470 && y==220){
                 semaforo[9]->V();
             }
-            std::cout<<"Semaforo 3: "<<semaforo[2]->getContador()<<std::endl;
-            std::cout<<"Semaforo 10: "<<semaforo[9]->getContador()<<std::endl;
+            //std::cout<<"Semaforo 3: "<<semaforo[2]->getContador()<<std::endl;
+            //std::cout<<"Semaforo 10: "<<semaforo[9]->getContador()<<std::endl;
 
-            if (enable && velocidade > 0)
+            if (enable)
             {
                 emit updateGUI(id,x,y);
                 if (x == 470 && y > 120)
@@ -166,23 +178,32 @@ void Trem::run(Semaforo* semaforo[])
             break;
         case 5:
             //Esquerda
-            if(y==300 && x==330){
+            if(y==300 && x==320){
+                semaforo[6]->P();
                 semaforo[8]->P();
+
             }
-            if(y==240 && x==330){
+            if(y==240 && x==340){
                 semaforo[8]->V();
+                //enable=false;
             }
+            if(y==240 && x==420){
+                semaforo[6]->V();
+                //enable=false;
+                //enable=false;
+            }
+
             //Direita
-            if(y==240 && x==450){
+            if(y==240 && x==440){
                 semaforo[9]->P();
             }
-            if(y==300 && x==450){
+            if(y==300 && x==440){
                 semaforo[9]->V();
             }
-            std::cout<<"Semaforo 9: "<<semaforo[8]->getContador()<<std::endl;
-            std::cout<<"Semaforo 10: "<<semaforo[9]->getContador()<<std::endl;
+            //std::cout<<"Semaforo 9: "<<semaforo[8]->getContador()<<std::endl;
+            //std::cout<<"Semaforo 10: "<<semaforo[9]->getContador()<<std::endl;
 
-            if (enable && velocidade > 0)
+            if (enable)
             {
                 emit updateGUI(id,x,y);
                 if (x == 310 && y > 240)
@@ -197,7 +218,41 @@ void Trem::run(Semaforo* semaforo[])
             }
             break;
         case 6:
-            if (enable && velocidade > 0)
+            //Esquerda
+            //Semaforo 8
+            if(x==160 && y==300){
+                semaforo[7]->P();
+            }
+
+            if(x==180 && y==240){
+                semaforo[7]->V();
+            }
+
+            //Direita
+            //Semaforo 6
+            if(y==240 && x==220){
+                semaforo[8]->P();
+                semaforo[5]->P();
+
+            }
+            if(y==270 && x==310){
+                semaforo[5]->V();
+            }
+
+            //Semaforo 9
+            /*
+            if(y==240 && x==300){
+                //semaforo[1]->V();
+            }*/
+            if(y==300 && x==280){
+                semaforo[8]->V();
+
+            }
+
+
+
+
+            if (enable)
             {
                 emit updateGUI(id,x,y);
                 if (x == 150 && y > 240)
@@ -213,7 +268,50 @@ void Trem::run(Semaforo* semaforo[])
             break;
 
         case 7:
-            if (enable && velocidade > 0)
+            /**** Cima ****/
+            //Semaforo 4
+            if(x==230 && y==200){
+                semaforo[4]->P();
+                semaforo[3]->P();
+                //enable=false;
+            }
+            if(x==350 && y==180){
+                semaforo[3]->V();
+                //enable=false;
+            }
+            /* Segundo
+            //Semaforo 5
+            if(x==300 && y==180){
+                enable=false;
+            }
+            */
+            if(x==390 && y==200){
+                semaforo[4]->V();
+                //enable=false;
+            }
+
+            /**** Baixo ****/
+            //Semaforo 7
+            if(x==390 && y==230){
+                semaforo[5]->P();
+                semaforo[6]->P();
+                //enable=false;
+            }
+            if(x==280 && y==240){
+                semaforo[6]->V();
+                //enable=false;
+            }
+            /*
+            //Semaforo 6
+            if(x==320 && y==240){
+                //enable=false;
+            }*/
+            if(x==230 && y==210){
+                semaforo[5]->V();
+                //enable=false;
+            }
+
+            if (enable)
             {
                 emit updateGUI(id,x,y);
                 if (x == 230 && y > 180)
