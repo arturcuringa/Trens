@@ -25,14 +25,7 @@ public slots:
 
 private:
     Ui::MainWindow *ui;
-    Trem *trem1;
-    Trem *trem2;
-    Trem *trem3;
-    Trem *trem4;
-    Trem *trem5;
-    Trem *trem6;
-    Trem *trem7;
-
+    Trem *trem[7];
     Semaforo* semaforo[10];
 };
 

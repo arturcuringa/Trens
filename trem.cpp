@@ -6,7 +6,7 @@ Trem::Trem(int id, int x, int y)
     this->x = x;
     this->y = y;
     velocidade = 250;
-    enable = true;
+    enable = false;
 }
 
 Trem::~Trem()
@@ -48,8 +48,6 @@ void Trem::run(Semaforo* semaforo[])
             if(y==300 && x==120){
                 semaforo[7]->V();
             }
-            //std::cout<<"Semaforo 1: "<<semaforo[0]->getContador()<<std::endl;
-            //std::cout<<"Semaforo 8: "<<semaforo[7]->getContador()<<std::endl;
 
             if (enable)
             {

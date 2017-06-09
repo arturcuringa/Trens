@@ -14,43 +14,43 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Verticais
 
-    trem1 = new Trem(1,90,210);
-    connect(trem1,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
-    trem1->start(semaforo);
-    trem1->setVelocidade(50);
+    trem[0] = new Trem(1,90,210);
+    connect(trem[0],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    trem[0]->start(semaforo);
+    trem[0]->setVelocidade(50);
 
-    trem4 = new Trem(4,530,210);
-    connect(trem4,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
-    trem4->start(semaforo);
-    trem4->setVelocidade(10);
+    trem[3] = new Trem(4,530,210);
+    connect(trem[3],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    trem[3]->start(semaforo);
+    trem[3]->setVelocidade(100);
 
     //Horizontais cima
-    trem2 = new Trem(2,230,120);
-    connect(trem2,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
-    trem2->start(semaforo);
-    trem2->setVelocidade(10);
+    trem[1] = new Trem(2,230,120);
+    connect(trem[0],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    trem[1]->start(semaforo);
+    trem[1]->setVelocidade(10);
 
-    trem3 = new Trem(3,390,120);
-    connect(trem3,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
-    trem3->start(semaforo);
-    trem3->setVelocidade(10);
+    trem[2] = new Trem(3,390,120);
+    connect(trem[2],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    trem[2]->start(semaforo);
+    trem[2]->setVelocidade(10);
 
     //Horizontais baixo
-    trem5 = new Trem(5,390,300);
-    connect(trem5,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
-    trem5->start(semaforo);
-    trem5->setVelocidade(10);
+    trem[4] = new Trem(5,390,300);
+    connect(trem[4],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    trem[4]->start(semaforo);
+    trem[4]->setVelocidade(10);
 
-    trem6 = new Trem(6,230,300);
-    connect(trem6,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
-    trem6->start(semaforo);
-    trem6->setVelocidade(10);
+    trem[5] = new Trem(6,230,300);
+    connect(trem[4],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    trem[5]->start(semaforo);
+    trem[5]->setVelocidade(10);
 
     //Central
-    trem7 = new Trem(7,390,220);
-    connect(trem7,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
-    trem7->start(semaforo);
-    trem7->setVelocidade(200);
+    trem[6] = new Trem(7,390,220);
+    connect(trem[6],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    trem[6]->start(semaforo);
+    trem[6]->setVelocidade(100);
 }
 
 MainWindow::~MainWindow()
