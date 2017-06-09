@@ -5,6 +5,9 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+#include <vector>
+#include <time.h>
+
 #include "semaforo.h"
 using namespace std;
 
@@ -21,14 +24,21 @@ public:
 
 signals:
     void updateGUI(int,int,int);
+    void updateTime(int,double,double,double);
 
 private:
    std::thread threadTrem;
    int id;
    int x;
    int y;
+   int xInicial;
+   int yInicial;
    int velocidade;
    bool enable;
+
+   int numvoltas;
+   double somaTempo;
+   std::vector<double>* tempoVoltas;
 };
 
 #endif // TREM_H
