@@ -6,7 +6,7 @@ Trem::Trem(int id, int x, int y)
     this->x = x;
     this->y = y;
     velocidade = 250;
-    enable = false;
+    enable = true;
 }
 
 Trem::~Trem()

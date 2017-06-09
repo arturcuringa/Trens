@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Horizontais cima
     trem[1] = new Trem(2,230,120);
-    connect(trem[0],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    connect(trem[1],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     trem[1]->start(semaforo);
     trem[1]->setVelocidade(10);
 
@@ -42,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     trem[4]->setVelocidade(10);
 
     trem[5] = new Trem(6,230,300);
-    connect(trem[4],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    connect(trem[5],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     trem[5]->start(semaforo);
     trem[5]->setVelocidade(10);
 
@@ -181,6 +181,7 @@ void MainWindow::updateInterface(int id, int x, int y)
     updateLabels();
     switch(id){
         case 1:
+            /*
             //Cima
             if(y==120 && x== 140){
                 std::cout<<"Trem 1: Pos("<<x<<","<<y<<"). Semaforo 1. P()"<<std::endl;
@@ -196,11 +197,12 @@ void MainWindow::updateInterface(int id, int x, int y)
 
             if(y==300 && x==120)
                 std::cout<<"Trem 1: Pos("<<x<<","<<y<<"). Semaforo 8. V()"<<std::endl;
-
+*/
             ui->labelTrem01->setGeometry(x,y,20,20);
             break;
-        case 2:
 
+        case 2:
+            /*
             //Esquerda
             if(y==180 && x==160)
                 std::cout<<"Trem 2: Pos("<<x<<","<<y<<"). Semaforo 1. P()"<<std::endl;
@@ -218,11 +220,12 @@ void MainWindow::updateInterface(int id, int x, int y)
                 std::cout<<"Trem 2: Pos("<<x<<","<<y<<"). Semaforo 2. V()"<<std::endl;
             if(y== 180 && x==200)
                 std::cout<<"Trem 2: Pos("<<x<<","<<y<<"). Semaforo 4. V()"<<std::endl;
-
+*/
             ui->labelTrem02->setGeometry(x,y,20,20);
             break;
-        case 3:
 
+        case 3:
+            /*
             //Esquerda
             if(y==180 && x==410){
                 std::cout<<"Trem 3: Pos("<<x<<","<<y<<"). Semaforo 2. P()"<<std::endl;
@@ -247,10 +250,11 @@ void MainWindow::updateInterface(int id, int x, int y)
                 std::cout<<"Trem 3: Pos("<<x<<","<<y<<"). Semaforo 3. V()"<<std::endl;
                 //semaforo[2]->V();
             }
+            */
             ui->labelTrem03->setGeometry(x,y,20,20);
             break;
         case 4:
-
+/*
             //Cima
             if(x==470 && y==190){
                 std::cout<<"Trem 4: Pos("<<x<<","<<y<<"). Semaforo 3. P()"<<std::endl;
@@ -269,10 +273,11 @@ void MainWindow::updateInterface(int id, int x, int y)
                 std::cout<<"Trem 4: Pos("<<x<<","<<y<<"). Semaforo 10. V()"<<std::endl;
                 //semaforo[9]->V();
             }
-
+*/
             ui->labelTrem04->setGeometry(x,y,20,20);
             break;
         case 5:
+            /*
             //Esquerda
             if(y==300 && x==320){
                 //semaforo[6]->P();
@@ -292,11 +297,12 @@ void MainWindow::updateInterface(int id, int x, int y)
 
             if(y==300 && x==440)
                 std::cout<<"Trem 5: Pos("<<x<<","<<y<<"). Semaforo 10. V()"<<std::endl;
+            */
             ui->labelTrem05->setGeometry(x,y,20,20);
             break;
 
         case 6:
-
+            /*
             //Esquerda
             //Semaforo 8
             if(x==160 && y==300)
@@ -318,10 +324,11 @@ void MainWindow::updateInterface(int id, int x, int y)
 
             if(y==300 && x==280)
                 std::cout<<"Trem 6: Pos("<<x<<","<<y<<"). Semaforo 9. V()"<<std::endl;
-
+*/
             ui->labelTrem06->setGeometry(x,y,20,20);
             break;
         case 7:
+            /*
             // Cima
             //Semaforo 4
             if(x==230 && y==200){
@@ -349,7 +356,7 @@ void MainWindow::updateInterface(int id, int x, int y)
 
             if(x==230 && y==210)
                 std::cout<<"Trem 7: Pos("<<x<<","<<y<<"). Semaforo 6. V()"<<std::endl;
-
+*/
             ui->labelTrem07->setGeometry(x,y,20,20);
             break;
         default:
