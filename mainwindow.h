@@ -21,6 +21,7 @@ public:
 
 public slots:
     void updateInterface(int,int,int);
+    void updateLabels(void);
 
 private:
     Ui::MainWindow *ui;
@@ -32,7 +33,7 @@ private:
     Trem *trem6;
     Trem *trem7;
 
-    Semaforo* semaforos[10];
+    Semaforo* semaforo[10];
 };
 
 #endif // MAINWINDOW_H

@@ -248,10 +248,6 @@ void Trem::run(Semaforo* semaforo[])
                 semaforo[8]->V();
 
             }
-
-
-
-
             if (enable)
             {
                 emit updateGUI(id,x,y);
