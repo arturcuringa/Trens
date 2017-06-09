@@ -51,6 +51,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(trem[6],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     trem[6]->start(semaforo);
     trem[6]->setVelocidade(100);
+
+    std::thread server(&MainWindow::serverHandler, this);
+    server.detach();
 }
 
 MainWindow::~MainWindow()
