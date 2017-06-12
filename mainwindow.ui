@@ -213,7 +213,7 @@ color: white	;</string>
    <widget class="QLabel" name="labelTrem02">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>290</x>
       <y>120</y>
       <width>20</width>
       <height>20</height>
@@ -243,8 +243,8 @@ color: white;</string>
    <widget class="QLabel" name="labelTrem03">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>120</y>
+      <x>420</x>
+      <y>180</y>
       <width>20</width>
       <height>20</height>
      </rect>
@@ -273,8 +273,8 @@ color: white;</string>
    <widget class="QLabel" name="labelTrem05">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>300</y>
+      <x>410</x>
+      <y>240</y>
       <width>20</width>
       <height>20</height>
      </rect>
@@ -334,7 +334,7 @@ color: white;</string>
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>210</y>
+      <y>220</y>
       <width>20</width>
       <height>20</height>
      </rect>
@@ -1364,7 +1364,7 @@ color: white;</string>
      <x>0</x>
      <y>0</y>
      <width>847</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

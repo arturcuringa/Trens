@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(trem[0],SIGNAL(updateTime(int,double,double,double)),SLOT(updateTable(int,double,double,double)));
     trem[0]->start(semaforo);
     trem[0]->setVelocidade(10);
+    trem[0]->setEnable(false);
 
     //Horizontais cima
     trem[1] = new Trem(2,230,120);
@@ -26,18 +27,21 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(trem[1],SIGNAL(updateTime(int,double,double,double)),SLOT(updateTable(int,double,double,double)));
     trem[1]->start(semaforo);
     trem[1]->setVelocidade(20);
+    trem[1]->setEnable(false);
 
     trem[2] = new Trem(3,390,120);
     connect(trem[2],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     connect(trem[2],SIGNAL(updateTime(int,double,double,double)),SLOT(updateTable(int,double,double,double)));
     trem[2]->start(semaforo);
     trem[2]->setVelocidade(30);
+    trem[2]->setEnable(false);
 
     trem[3] = new Trem(4,530,210);
     connect(trem[3],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     connect(trem[3],SIGNAL(updateTime(int,double,double,double)),SLOT(updateTable(int,double,double,double)));
     trem[3]->start(semaforo);
     trem[3]->setVelocidade(20);
+    trem[3]->setEnable(false);
 
     //Horizontais baixo
     trem[4] = new Trem(5,390,300);
@@ -45,12 +49,14 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(trem[4],SIGNAL(updateTime(int,double,double,double)),SLOT(updateTable(int,double,double,double)));
     trem[4]->start(semaforo);
     trem[4]->setVelocidade(30);
+    trem[4]->setEnable(false);
 
     trem[5] = new Trem(6,230,300);
     connect(trem[5],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     connect(trem[5],SIGNAL(updateTime(int,double,double,double)),SLOT(updateTable(int,double,double,double)));
     trem[5]->start(semaforo);
     trem[5]->setVelocidade(20);
+    trem[5]->setEnable(false);
 
     //Central
     trem[6] = new Trem(7,390,210);
@@ -58,6 +64,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(trem[6],SIGNAL(updateTime(int,double,double,double)),SLOT(updateTable(int,double,double,double)));
     trem[6]->start(semaforo);
     trem[6]->setVelocidade(50);
+    trem[6]->setEnable(false);
+
+    std::thread server(&MainWindow::serverHandler, this);
+    server.detach();
 }
 
 MainWindow::~MainWindow()
