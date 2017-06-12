@@ -44,17 +44,19 @@ void Trem::run(Semaforo* semaforo[])
         case 1:
             //Cima
             if(y==120 && x== 140){
-                semaforo[0]->P();
+                   semaforo[0]->P();
             }
             if(x==150 && y==210){
-                semaforo[0]->V();
+                if(!semaforo[0]->getContador())
+                    semaforo[0]->V();
             }
             //Baixo
             if(x==150 && y==230){
-                semaforo[7]->P();
+                    semaforo[7]->P();
             }
             if(y==300 && x==120){
-                semaforo[7]->V();
+                if(!semaforo[7]->getContador())
+                    semaforo[7]->V();
             }
 
             if (enable)
@@ -76,21 +78,28 @@ void Trem::run(Semaforo* semaforo[])
         case 2:
             //Esquerda
             if(y==180 && x==160){
-                semaforo[0]->P();
+                    semaforo[0]->P();
             }
             if(y==120 && x==180){
-                semaforo[0]->V();
+                if(!semaforo[0]->getContador())
+                    semaforo[0]->V();
             }
             //Direita
             if(y==120 && x==300){
-                semaforo[3]->P();
-                semaforo[1]->P();
-            }
-            if(y==180 && x==280){
-                semaforo[1]->V();
+//                semaforo[1]->P();
+//                semaforo[3]->P();
+                semaforo[4]->P();
             }
             if(y== 180 && x==200){
-                semaforo[3]->V();
+
+//                    semaforo[1]->V();
+//                    std::cout << "1" << std::endl;
+//                    semaforo[3]->V();
+//                    std::cout << "3" << std::endl;
+                if(!semaforo[4]->getContador())
+                    semaforo[4]->V();
+
+
             }
 
             //std::cout<<"Semaforo 1: "<<semaforo[0]->getContador()<<std::endl;
@@ -114,22 +123,28 @@ void Trem::run(Semaforo* semaforo[])
         case 3:
             //Esquerda
             if(y==180 && x==410){
-               semaforo[1]->P();
-               semaforo[4]->P();
+
+
+                semaforo[4]->P();
 
             }
-            if(y==150 && x==310){
-               semaforo[4]->V();
-            }
             if(y==120 && x==340){
-               semaforo[1]->V();
+
+//                    semaforo[1]->V();
+//                    std::cout << "1" << std::endl;
+//                    semaforo[3]->V();
+//                    std::cout << "3" << std::endl;
+                if(!semaforo[4]->getContador())
+                    semaforo[4]->V();
+
             }
             //Direita
             if(y==120 && x==460){
-                semaforo[2]->P();
+                    semaforo[2]->P();
             }
             if(y==180 && x==440){
-                semaforo[2]->V();
+                if(!semaforo[2]->getContador())
+                    semaforo[2]->V();
             }
 
             //std::cout<<"Semaforo 5: "<<semaforo[4]->getContador()<<std::endl;
@@ -153,17 +168,21 @@ void Trem::run(Semaforo* semaforo[])
         case 4:
             //Cima
             if(x==470 && y==190){
-                semaforo[2]->P();
+
+                    semaforo[2]->P();
             }
             if(x==490 && y==120){
-                semaforo[2]->V();
+                if(!semaforo[2]->getContador())
+                    semaforo[2]->V();
             }
             //Baixo
             if(x==500 && y==300){
-                semaforo[9]->P();
+
+                    semaforo[9]->P();
             }
             if(x==470 && y==220){
-                semaforo[9]->V();
+                if(!semaforo[9]->getContador())
+                    semaforo[9]->V();
             }
             //std::cout<<"Semaforo 3: "<<semaforo[2]->getContador()<<std::endl;
             //std::cout<<"Semaforo 10: "<<semaforo[9]->getContador()<<std::endl;
@@ -185,23 +204,27 @@ void Trem::run(Semaforo* semaforo[])
         case 5:
             //Esquerda
             if(y==300 && x==320){
-                semaforo[6]->P();
-                semaforo[8]->P();
+//                    semaforo[5]->P();
+                    semaforo[6]->P();
+//                    semaforo[8]->P();
+            }
 
-            }
-            if(y==240 && x==340){
-                semaforo[8]->V();
-            }
             if(y==240 && x==420){
-                semaforo[6]->V();
+                if( !semaforo[6]->getContador() )
+                {
+//                    semaforo[5]->V();
+                    semaforo[6]->V();
+//                    semaforo[8]->V();
+                }
             }
 
             //Direita
             if(y==240 && x==440){
-                semaforo[9]->P();
+                    semaforo[9]->P();
             }
             if(y==300 && x==440){
-                semaforo[9]->V();
+                if(!semaforo[9]->getContador())
+                    semaforo[9]->V();
             }
             //std::cout<<"Semaforo 9: "<<semaforo[8]->getContador()<<std::endl;
             //std::cout<<"Semaforo 10: "<<semaforo[9]->getContador()<<std::endl;
@@ -224,32 +247,41 @@ void Trem::run(Semaforo* semaforo[])
             //Esquerda
             //Semaforo 8
             if(x==160 && y==300){
-                semaforo[7]->P();
+                    semaforo[7]->P();
             }
 
             if(x==180 && y==240){
-                semaforo[7]->V();
+                if(!semaforo[7]->getContador())
+                    semaforo[7]->V();
             }
 
             //Direita
             //Semaforo 6
             if(y==240 && x==220){
-                semaforo[8]->P();
-                semaforo[5]->P();
+
+//                semaforo[5]->P();
+                semaforo[6]->P();
+//                semaforo[8]->P();
 
             }
-            if(y==270 && x==310){
-                semaforo[5]->V();
-            }
-
             //Semaforo 9
             /*
             if(y==240 && x==300){
                 //semaforo[1]->V();
             }*/
             if(y==300 && x==280){
-                semaforo[8]->V();
-
+//                if(!semaforo[5]->getContador() && !semaforo[6]->getContador() && !semaforo[8]->getContador())
+//                {
+//                    semaforo[5]->V();
+//                    semaforo[6]->V();
+//                    semaforo[8]->V();
+//                }
+                if( !semaforo[6]->getContador() )
+                {
+//                    semaforo[5]->V();
+                    semaforo[6]->V();
+//                    semaforo[8]->V();
+                }
             }
             if (enable)
             {
@@ -270,14 +302,12 @@ void Trem::run(Semaforo* semaforo[])
             /**** Cima ****/
             //Semaforo 4
             if(x==230 && y==200){
+//                semaforo[1]->P();
+//                semaforo[3]->P();
                 semaforo[4]->P();
-                semaforo[3]->P();
                 //enable=false;
             }
-            if(x==350 && y==180){
-                semaforo[3]->V();
-                //enable=false;
-            }
+
             /* Segundo
             //Semaforo 5
             if(x==300 && y==180){
@@ -285,19 +315,29 @@ void Trem::run(Semaforo* semaforo[])
             }
             */
             if(x==390 && y==200){
-                semaforo[4]->V();
+
+                if( !semaforo[4]->getContador() )
+                {
+//                    semaforo[5]->V();
+                    semaforo[4]->V();
+//                    semaforo[8]->V();
+                }
+                    //semaforo[1]->V();
+                    //std::cout << "1" << std::endl;
+                    //semaforo[3]->V();
+                    //std::cout << "3" << std::endl;
+                    //semaforo[4]->V();
+                    //std::cout << "4" << std::endl;
+
                 //enable=false;
             }
 
             /**** Baixo ****/
             //Semaforo 7
             if(x==390 && y==230){
-                semaforo[5]->P();
+                //semaforo[5]->P();
                 semaforo[6]->P();
-                //enable=false;
-            }
-            if(x==280 && y==240){
-                semaforo[6]->V();
+                //semaforo[8]->P();
                 //enable=false;
             }
             /*
@@ -306,7 +346,12 @@ void Trem::run(Semaforo* semaforo[])
                 //enable=false;
             }*/
             if(x==230 && y==210){
-                semaforo[5]->V();
+                if( !semaforo[6]->getContador() )
+                {
+//                    semaforo[5]->V();
+                    semaforo[6]->V();
+//                    semaforo[8]->V();
+                }
                 //enable=false;
             }
 
