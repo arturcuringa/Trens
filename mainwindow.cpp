@@ -57,7 +57,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(trem[6],SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     connect(trem[6],SIGNAL(updateTime(int,double,double,double)),SLOT(updateTable(int,double,double,double)));
     trem[6]->start(semaforo);
-    trem[6]->setVelocidade(50);
+    trem[6]->setVelocidade(250);
 }
 
 MainWindow::~MainWindow()
@@ -74,26 +74,32 @@ void MainWindow::updateTable(int id, double media, double desvio, double ultimo)
         ui->mediat1->setText(QString::number(media));
         ui->desviot1->setText(QString::number(sqrt(desvio)));
         ui->ultimot1->setText(QString::number(ultimo));
+        break;
     case 2:
         ui->mediat2->setText(QString::number(media));
         ui->desviot2->setText(QString::number(sqrt(desvio)));
         ui->ultimot2->setText(QString::number(ultimo));
+        break;
     case 3:
         ui->mediat3->setText(QString::number(media));
         ui->desviot3->setText(QString::number(sqrt(desvio)));
         ui->ultimot3->setText(QString::number(ultimo));
+        break;
     case 4:
         ui->mediat4->setText(QString::number(media));
         ui->desviot4->setText(QString::number(sqrt(desvio)));
         ui->ultimot4->setText(QString::number(ultimo));
+        break;
     case 5:
         ui->mediat5->setText(QString::number(media));
         ui->desviot5->setText(QString::number(sqrt(desvio)));
         ui->ultimot5->setText(QString::number(ultimo));
+        break;
     case 6:
         ui->mediat6->setText(QString::number(media));
         ui->desviot6->setText(QString::number(sqrt(desvio)));
         ui->ultimot6->setText(QString::number(ultimo));
+        break;
     case 7:
         ui->mediat7->setText(QString::number(media));
         ui->desviot7->setText(QString::number(sqrt(desvio)));

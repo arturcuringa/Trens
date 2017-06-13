@@ -11,7 +11,11 @@ Trem::Trem(int id, int x, int y)
     enable = true;
     numvoltas=0;
     somaTempo=0;
+    curVolta=0;
+    lastVolta=0;
+    var=0;
     tempoVoltas=new vector<double>();
+
 }
 
 Trem::~Trem()
@@ -36,9 +40,6 @@ void Trem::start(Semaforo* semaforo[])
 
 void Trem::run(Semaforo* semaforo[])
 {
-    struct timespec start, finish;
-    double elapsed;
-
     while(true){
         switch(id){
         case 1:
@@ -335,10 +336,7 @@ void Trem::run(Semaforo* semaforo[])
             /**** Baixo ****/
             //Semaforo 7
             if(x==390 && y==230){
-                //semaforo[5]->P();
                 semaforo[6]->P();
-                //semaforo[8]->P();
-                //enable=false;
             }
             /*
             //Semaforo 6
@@ -373,28 +371,28 @@ void Trem::run(Semaforo* semaforo[])
             std::cout<<"ID ESTRANHO"<<id<<std::endl;
             break;
         }
-        if(x==xInicial && y==yInicial){
-            if(numvoltas!=0){
 
-                clock_gettime(CLOCK_REALTIME, &finish);
+        if(this->enable){
+            curVolta += velocidade / 1000.0;
 
-                elapsed = (finish.tv_sec - start.tv_sec);
-                elapsed += (finish.tv_nsec - start.tv_nsec) / 1000000000.0;
-
-                numvoltas++;
-                tempoVoltas->push_back(elapsed);
-                somaTempo+=tempoVoltas->back();
+            if(x==xInicial && y==yInicial && curVolta > velocidade / 1000.0){
+                /*numvoltas++;
+                //tempoVoltas->push_back(elapsed);
+                somaTempo+=curVolta;
 
                 double media=somaTempo/numvoltas;
                 double somatorio=0;
                 for(unsigned int i=0;i<tempoVoltas->size();++i){
                     somatorio+=(x-media)*(x-media);
                 }somatorio/=(numvoltas);
-
-                emit updateTime(id,media,somatorio,tempoVoltas->back());
-
-                clock_gettime(CLOCK_MONOTONIC, &start);
-            }else numvoltas++;
+                */
+                ++numvoltas;
+                var =  numvoltas < 2 ? 0 : var*(numvoltas-2.0)/(numvoltas-1.0) + (1.0/numvoltas)*pow(curVolta-(somaTempo/(numvoltas-1.0)),2);
+                somaTempo+=curVolta;
+                lastVolta = curVolta;
+                curVolta = 0;
+                emit updateTime(id,numvoltas<1? 0 : somaTempo/numvoltas,sqrt(var),lastVolta);
+            }
         }
         this_thread::sleep_for(chrono::milliseconds(velocidade));
     }

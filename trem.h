@@ -36,6 +36,9 @@ private:
    int velocidade;
    bool enable;
 
+   double curVolta;
+   double lastVolta;
+   double var;
    int numvoltas;
    double somaTempo;
    std::vector<double>* tempoVoltas;
