@@ -14,8 +14,6 @@ Trem::Trem(int id, int x, int y)
     curVolta=0;
     lastVolta=0;
     var=0;
-    tempoVoltas=new vector<double>();
-
 }
 
 Trem::~Trem()
@@ -40,30 +38,37 @@ void Trem::start(Semaforo* semaforo[])
 
 void Trem::run(Semaforo* semaforo[])
 {
+    QString log;
     while(true){
+        log="";
         switch(id){
         case 1:
             //Cima
             if(y==120 && x== 140){
-                   semaforo[0]->P();
+                semaforo[0]->P();
+                log=QString::fromStdString("Trem 1: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 1. P()\n");
             }
             if(x==150 && y==210){
-                if(!semaforo[0]->getContador())
+                if(!semaforo[0]->getContador()){
                     semaforo[0]->V();
+                    log=QString::fromStdString("Trem 1: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 1. V()\n");
+                }
             }
             //Baixo
             if(x==150 && y==230){
-                    semaforo[7]->P();
+                semaforo[7]->P();
+                log=QString::fromStdString("Trem 1: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 8. P()\n");
             }
             if(y==300 && x==120){
-                if(!semaforo[7]->getContador())
+                if(!semaforo[7]->getContador()){
                     semaforo[7]->V();
+                    log=QString::fromStdString("Trem 1: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 8. V()\n");
+                }
             }
 
             if (enable)
             {
-
-                emit updateGUI(id,x,y);
+                emit updateGUI(id,x,y,log);
                 if (x == 90 && y > 120)
                     y-=10;
                 else if (y == 120 && x < 150)
@@ -74,42 +79,34 @@ void Trem::run(Semaforo* semaforo[])
                     x-=10;
                 else std::cout<<"bugou";
             }
-
             break;
         case 2:
             //Esquerda
             if(y==180 && x==160){
-                    semaforo[0]->P();
+                semaforo[0]->P();
+                log=QString::fromStdString("Trem 2: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 1. P()\n");
             }
             if(y==120 && x==180){
-                if(!semaforo[0]->getContador())
+                if(!semaforo[0]->getContador()){
                     semaforo[0]->V();
+                    log=QString::fromStdString("Trem 2: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 1. V()\n");
+                }
             }
             //Direita
             if(y==120 && x==300){
-//                semaforo[1]->P();
-//                semaforo[3]->P();
                 semaforo[4]->P();
+                log=QString::fromStdString("Trem 2: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 5. P()\n");
             }
             if(y== 180 && x==200){
-
-//                    semaforo[1]->V();
-//                    std::cout << "1" << std::endl;
-//                    semaforo[3]->V();
-//                    std::cout << "3" << std::endl;
-                if(!semaforo[4]->getContador())
+                if(!semaforo[4]->getContador()){
                     semaforo[4]->V();
-
-
+                    log=QString::fromStdString("Trem 2: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 5. V()\n");
+                }
             }
-
-            //std::cout<<"Semaforo 1: "<<semaforo[0]->getContador()<<std::endl;
-            //std::cout<<"Semaforo 2: "<<semaforo[1]->getContador()<<std::endl;
-            //std::cout<<"Semaforo 4: "<<semaforo[3]->getContador()<<std::endl;
 
             if (enable)
             {
-                emit updateGUI(id,x,y);
+                emit updateGUI(id,x,y,log);
                 if (x == 150 && y > 120)
                     y-=10;
                 else if (y == 120 && x < 310)
@@ -124,37 +121,30 @@ void Trem::run(Semaforo* semaforo[])
         case 3:
             //Esquerda
             if(y==180 && x==410){
-
-
                 semaforo[4]->P();
-
+                log=QString::fromStdString("Trem 3: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 5. P()\n");
             }
             if(y==120 && x==340){
-
-//                    semaforo[1]->V();
-//                    std::cout << "1" << std::endl;
-//                    semaforo[3]->V();
-//                    std::cout << "3" << std::endl;
-                if(!semaforo[4]->getContador())
+                if(!semaforo[4]->getContador()){
                     semaforo[4]->V();
-
+                    log=QString::fromStdString("Trem 3: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 5. V()\n");
+                }
             }
             //Direita
             if(y==120 && x==460){
-                    semaforo[2]->P();
+                semaforo[2]->P();
+                log=QString::fromStdString("Trem 3: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 3. P()\n");
             }
             if(y==180 && x==440){
-                if(!semaforo[2]->getContador())
+                if(!semaforo[2]->getContador()){
                     semaforo[2]->V();
+                    log=QString::fromStdString("Trem 3: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 3. V()\n");
+                }
             }
-
-            //std::cout<<"Semaforo 5: "<<semaforo[4]->getContador()<<std::endl;
-            //std::cout<<"Semaforo 2: "<<semaforo[1]->getContador()<<std::endl;
-            //std::cout<<"Semaforo 3: "<<semaforo[2]->getContador()<<std::endl;
 
             if (enable)
             {
-                emit updateGUI(id,x,y);
+                emit updateGUI(id,x,y,log);
                 if (x == 310 && y > 120)
                     y-=10;
                 else if (y == 120 && x < 470)
@@ -169,28 +159,30 @@ void Trem::run(Semaforo* semaforo[])
         case 4:
             //Cima
             if(x==470 && y==190){
-
                     semaforo[2]->P();
+                    log=QString::fromStdString("Trem 4: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 3. P()\n");
             }
             if(x==490 && y==120){
-                if(!semaforo[2]->getContador())
+                if(!semaforo[2]->getContador()){
                     semaforo[2]->V();
+                    log=QString::fromStdString("Trem 4: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 3. V()\n");
+                }
             }
             //Baixo
             if(x==500 && y==300){
-
-                    semaforo[9]->P();
+                semaforo[9]->P();
+                log=QString::fromStdString("Trem 4: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 10. P()\n");
             }
             if(x==470 && y==220){
-                if(!semaforo[9]->getContador())
+                if(!semaforo[9]->getContador()){
                     semaforo[9]->V();
+                    log=QString::fromStdString("Trem 4: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 10. V()\n");
+                }
             }
-            //std::cout<<"Semaforo 3: "<<semaforo[2]->getContador()<<std::endl;
-            //std::cout<<"Semaforo 10: "<<semaforo[9]->getContador()<<std::endl;
 
             if (enable)
             {
-                emit updateGUI(id,x,y);
+                emit updateGUI(id,x,y,log);
                 if (x == 470 && y > 120)
                     y-=10;
                 else if (y == 120 && x < 530)
@@ -205,34 +197,33 @@ void Trem::run(Semaforo* semaforo[])
         case 5:
             //Esquerda
             if(y==300 && x==320){
-//                    semaforo[5]->P();
-                    semaforo[6]->P();
-//                    semaforo[8]->P();
+                semaforo[6]->P();
+                log=QString::fromStdString("Trem 5: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 7. P()\n");
             }
 
             if(y==240 && x==420){
                 if( !semaforo[6]->getContador() )
                 {
-//                    semaforo[5]->V();
                     semaforo[6]->V();
-//                    semaforo[8]->V();
+                    log=QString::fromStdString("Trem 5: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 7. V()\n");
                 }
             }
 
             //Direita
             if(y==240 && x==440){
-                    semaforo[9]->P();
+                semaforo[9]->P();
+                log=QString::fromStdString("Trem 5: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 10. P()\n");
             }
             if(y==300 && x==440){
-                if(!semaforo[9]->getContador())
+                if(!semaforo[9]->getContador()){
                     semaforo[9]->V();
+                    log=QString::fromStdString("Trem 5: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 10. V()\n");
+                }
             }
-            //std::cout<<"Semaforo 9: "<<semaforo[8]->getContador()<<std::endl;
-            //std::cout<<"Semaforo 10: "<<semaforo[9]->getContador()<<std::endl;
 
             if (enable)
             {
-                emit updateGUI(id,x,y);
+                emit updateGUI(id,x,y,log);
                 if (x == 310 && y > 240)
                     y-=10;
                 else if (y == 240 && x < 470)
@@ -248,45 +239,32 @@ void Trem::run(Semaforo* semaforo[])
             //Esquerda
             //Semaforo 8
             if(x==160 && y==300){
-                    semaforo[7]->P();
+                semaforo[7]->P();
+                log=QString::fromStdString("Trem 6: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 8. P()\n");
             }
 
             if(x==180 && y==240){
-                if(!semaforo[7]->getContador())
+                if(!semaforo[7]->getContador()){
                     semaforo[7]->V();
+                    log=QString::fromStdString("Trem 6: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 8. V()\n");
+                }
             }
 
             //Direita
-            //Semaforo 6
             if(y==240 && x==220){
-
-//                semaforo[5]->P();
                 semaforo[6]->P();
-//                semaforo[8]->P();
-
+                log=QString::fromStdString("Trem 6: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 7. P()\n");
             }
-            //Semaforo 9
-            /*
-            if(y==240 && x==300){
-                //semaforo[1]->V();
-            }*/
             if(y==300 && x==280){
-//                if(!semaforo[5]->getContador() && !semaforo[6]->getContador() && !semaforo[8]->getContador())
-//                {
-//                    semaforo[5]->V();
-//                    semaforo[6]->V();
-//                    semaforo[8]->V();
-//                }
                 if( !semaforo[6]->getContador() )
                 {
-//                    semaforo[5]->V();
                     semaforo[6]->V();
-//                    semaforo[8]->V();
+                    log=QString::fromStdString("Trem 6: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 7. P()\n");
                 }
             }
             if (enable)
             {
-                emit updateGUI(id,x,y);
+                emit updateGUI(id,x,y,log);
                 if (x == 150 && y > 240)
                     y-=10;
                 else if (y == 240 && x < 310)
@@ -300,62 +278,36 @@ void Trem::run(Semaforo* semaforo[])
             break;
 
         case 7:
-            /**** Cima ****/
-            //Semaforo 4
             if(x==230 && y==200){
-//                semaforo[1]->P();
-//                semaforo[3]->P();
                 semaforo[4]->P();
-                //enable=false;
+                log=QString::fromStdString("Trem 7: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 5. P()\n");
             }
-
-            /* Segundo
-            //Semaforo 5
-            if(x==300 && y==180){
-                enable=false;
-            }
-            */
             if(x==390 && y==200){
 
                 if( !semaforo[4]->getContador() )
                 {
-//                    semaforo[5]->V();
                     semaforo[4]->V();
-//                    semaforo[8]->V();
+                    log=QString::fromStdString("Trem 7: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 5. V()\n");
                 }
-                    //semaforo[1]->V();
-                    //std::cout << "1" << std::endl;
-                    //semaforo[3]->V();
-                    //std::cout << "3" << std::endl;
-                    //semaforo[4]->V();
-                    //std::cout << "4" << std::endl;
-
-                //enable=false;
             }
 
             /**** Baixo ****/
             //Semaforo 7
             if(x==390 && y==230){
                 semaforo[6]->P();
+                log=QString::fromStdString("Trem 7: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 7. P()\n");
             }
-            /*
-            //Semaforo 6
-            if(x==320 && y==240){
-                //enable=false;
-            }*/
             if(x==230 && y==210){
                 if( !semaforo[6]->getContador() )
                 {
-//                    semaforo[5]->V();
                     semaforo[6]->V();
-//                    semaforo[8]->V();
+                    log=QString::fromStdString("Trem 7: Pos("+std::to_string(x)+","+std::to_string(y)+"). Semaforo 7. V()\n");
                 }
-                //enable=false;
             }
 
             if (enable)
             {
-                emit updateGUI(id,x,y);
+                emit updateGUI(id,x,y,log);
                 if (x == 230 && y > 180)
                     y-=10;
                 else if (y == 180 && x < 390)
@@ -372,7 +324,7 @@ void Trem::run(Semaforo* semaforo[])
             break;
         }
 
-        if(this->enable){
+        if(enable){
             curVolta += velocidade / 1000.0;
 
             if(x==xInicial && y==yInicial && curVolta > velocidade / 1000.0){

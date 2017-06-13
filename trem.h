@@ -23,7 +23,7 @@ public:
     void setEnable(bool);
 
 signals:
-    void updateGUI(int,int,int);
+    void updateGUI(int,int,int,QString);
     void updateTime(int,double,double,double);
 
 private:
