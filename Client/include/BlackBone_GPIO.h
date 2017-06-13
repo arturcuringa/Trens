@@ -9,6 +9,14 @@
 #include <algorithm>
 #include <sys/stat.h>
 #include <map>
+#include <cstdio>
+#include <iostream>
+#include <sstream>
+#include <memory>
+#include <stdexcept>
+#include <string>
+#include <array>
+#include <queue>
 
 /**
  *  \brief	Enum usage for setup, output functions
@@ -23,6 +31,7 @@ enum GPIO{
 class BlackBone_GPIO
 {
     private:
+    	std::string exec(const char* cmd);
     	/**
 		 *  \brief	default GPIO folder
 		 */

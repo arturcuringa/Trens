@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include <QScrollBar>
 #include "trem.h"
 #include "semaforo.h"
 #include <QMainWindow>
@@ -28,10 +28,12 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    QString printAbreLog(int trem, int semaforo);
+    QString printFechaLog(int trem, int semaforo);
+    void updateLabels(void);
 
 public slots:
-    void updateInterface(int,int,int);
-    void updateLabels(void);
+    void updateInterface(int,int,int,QString);
     void updateTable(int,double,double,double);
 
 private:

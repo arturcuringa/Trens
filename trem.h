@@ -7,7 +7,7 @@
 #include <iostream>
 #include <vector>
 #include <time.h>
-
+#include <cmath>
 #include "semaforo.h"
 using namespace std;
 
@@ -23,7 +23,7 @@ public:
     void setEnable(bool);
 
 signals:
-    void updateGUI(int,int,int);
+    void updateGUI(int,int,int,QString);
     void updateTime(int,double,double,double);
 
 private:
@@ -36,6 +36,9 @@ private:
    int velocidade;
    bool enable;
 
+   double curVolta;
+   double lastVolta;
+   double var;
    int numvoltas;
    double somaTempo;
    std::vector<double>* tempoVoltas;
